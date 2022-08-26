@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío 01</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script async src="./app.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="center">{{title}}</h1>
+      <p v-html="text"></p>
+      <div class="container">
+        <button @click="restar()">-</button>
+        <span>{{num}}</span>
+        <!--<input type="number" name="num" id="num" v-model="num" readonly /> -->
+        <button @click="sumar()">+</button>
+      </div>
+    </div>
+  </body>
+  <style>
+    .container {
+      padding: 20px;
+    }
+    .center {
+      text-align: center;
+    }
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      outline: none;
+    }
+    span,
+    button {
+      font-size: 20px;
+    }
+    span {
+      padding: 0 10px;
+    }
+  </style>
+</html>
