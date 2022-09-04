@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío 02</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script async src="./app.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="center">{{title}}</h1>
+      <div class="container">
+        <div v-for="(item, index) in codermeals" class="box">
+          <main-products :products="item"></main-products>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    * {
+      font-family: system-ui;
+    }
+    body {
+      background-color: #ededed;
+    }
+    .container {
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .box {
+      margin-bottom: 20px;
+      box-shadow: -2px 8px 24px 0px rgb(0 0 0 / 56%);
+      -webkit-box-shadow: 2px 6px 15px 2px rgb(0 0 0 / 24%);
+      -moz-box-shadow: -2px 8px 24px 0px rgba(0, 0, 0, 0.56);
+      background-color: white;
+    }
+    .center {
+      text-align: center;
+    }
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      outline: none;
+    }
+    span,
+    button {
+      font-size: 20px;
+    }
+    span {
+      padding: 0 10px;
+    }
+  </style>
+</html>
