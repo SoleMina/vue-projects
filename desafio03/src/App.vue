@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MainTitle title="Products" />
+    <MainTitle :title="title" />
     <ProductsCard />
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      title: "Desafío 3"
+      title: "Our Products"
     };
   }
 };
