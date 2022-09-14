@@ -16,17 +16,15 @@
           :key="'item' + i"
           :class="getColor(i)"
         >
-          <div>
-            <td>#{{ i + 1 }}</td>
-            <td>
-              <img :src="item.portada" width="100" />
-            </td>
-            <td>{{ item.titulo }}</td>
-            <td :class="item.oferta ? 'green' : 'red'">
-              {{ item.oferta ? "SI" : "NO" }}
-            </td>
-            <td>${{ item.costo }}</td>
-          </div>
+          <td>#{{ i + 1 }}</td>
+          <td>
+            <img :src="item.portada" width="100" />
+          </td>
+          <td>{{ item.titulo }}</td>
+          <td :class="item.oferta ? 'green' : 'red'">
+            {{ item.oferta ? "SI" : "NO" }}
+          </td>
+          <td>${{ item.costo }}</td>
         </tr>
       </tbody>
     </table>
@@ -103,4 +101,26 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+table {
+  margin: auto;
+  display: block;
+  width: 500px;
+}
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 12px;
+}
+thead {
+  background-color: #d2d2d2;
+}
+thead > tr > td {
+  font-size: 21px;
+  font-weight: bold;
+}
+tbody .blanco {
+  background: #fff;
+}
+</style>

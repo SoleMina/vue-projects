@@ -41,24 +41,6 @@ body {
 .center {
   text-align: center;
 }
-table {
-  margin: auto;
-  display: block;
-  width: 500px;
-}
-th,
-td {
-  border: 1px solid black;
-  text-align: center;
-  padding: 12px;
-}
-thead {
-  background-color: #d2d2d2;
-}
-thead > tr > td {
-  font-size: 21px;
-  font-weight: bold;
-}
 button {
   background-color: black;
   color: white;
@@ -80,8 +62,5 @@ span {
 }
 .gris {
   background: #ccc;
-}
-tbody .blanco {
-  background: #fff;
 }
 </style>
