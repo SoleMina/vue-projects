@@ -45,50 +45,50 @@ export default {
           products: [
             {
               id: 1,
-              name: "Iphone 11",
+              name: "La Marinara",
               price: 575.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/18673441_1",
+                "https://www.paulinacocina.net/wp-content/uploads/2017/04/2-640x427.jpg",
               oferta: true
             },
             {
               id: 2,
-              name: "Samsung TV",
+              name: "La Fugaza",
               price: 675.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/18891312_01",
+                "https://www.paulinacocina.net/wp-content/uploads/2017/04/3-640x480.jpg",
               oferta: false
             },
             {
               id: 3,
-              name: "LG TV 55'",
+              name: "La Hawaiana",
               price: 845.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/18946885_01",
+                "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/11/como-hacer-pizza-hawaiana.jpg",
               oferta: true
             },
             {
               id: 4,
-              name: "Laptop Lenovo",
+              name: "A La Española",
               price: 845.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/882511912_1",
+                "https://live.mrf.io/statics/i/ps/irecetasfaciles.com/wp-content/uploads/2019/01/pizza-con-salami-chorizo-beacon.jpg?width=1200&enable=upscale",
               oferta: true
             },
             {
               id: 5,
-              name: "Batidora",
+              name: "Margarita",
               price: 845.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/17886849_1",
+                "https://d1nsq2txwd94q7.cloudfront.net/public/files/production/recipes/images/4220/thumb/r_4220_1550829924.jpg",
               oferta: false
             },
             {
               id: 6,
-              name: "Pack Minime",
+              name: "Peperoni",
               price: 845.0,
               portada:
-                "https://falabella.scene7.com/is/image/FalabellaPE/18782863",
+                "https://media-cdn.tripadvisor.com/media/photo-p/15/2d/23/07/domino-s-pizza.jpg",
               oferta: false
             }
           ]
@@ -176,5 +176,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.tienda-titulo {
+  padding-left: 20px;
 }
 </style>
