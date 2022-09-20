@@ -4,24 +4,9 @@
       <font-awesome-icon icon="fa-solid fa-bars" />
     </div>
     <ul>
-      <li>
+      <li v-for="(icon, index) in icons" :key="index">
         <a class="icon__link">
-          <font-awesome-icon icon="fa-solid fa-house" />
-        </a>
-      </li>
-      <li>
-        <a class="icon__link">
-          <font-awesome-icon icon="fa-solid fa-user" />
-        </a>
-      </li>
-      <li>
-        <a class="icon__link">
-          <font-awesome-icon icon="fa-solid fa-user-plus" />
-        </a>
-      </li>
-      <li>
-        <a class="icon__link">
-          <font-awesome-icon icon="fa-solid fa-right-from-bracket" />
+          <font-awesome-icon :icon="icon.name" />
         </a>
       </li>
     </ul>
@@ -33,6 +18,28 @@ export default {
   name: "NavBar",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      icons: [
+        {
+          id: 0,
+          name: "fa-solid fa-house"
+        },
+        {
+          id: 1,
+          name: "fa-solid fa-user"
+        },
+        {
+          id: 2,
+          name: "fa-solid fa-user-plus"
+        },
+        {
+          id: 3,
+          name: "fa-solid fa-right-from-bracket"
+        }
+      ]
+    };
   }
 };
 </script>

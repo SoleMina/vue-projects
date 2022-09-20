@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="d-flex">
-    <!--<img alt="Vue logo" src="./assets/logo.png" />-->
     <div class="navbar pt-0">
       <NavBar />
     </div>
@@ -24,7 +23,7 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import ProductsCard from "./components/ProductsCard.vue";
-//import LoginForm from "./components/ProductsCard.vue";
+//import LoginForm from "./components/LoginForm.vue";
 
 export default {
   name: "App",
@@ -36,6 +35,7 @@ export default {
   data() {
     return {
       title: "Flash Products",
+      name: "",
       carrito: [],
       tiendas: [
         {
@@ -94,7 +94,7 @@ export default {
         },
         {
           id: 2,
-          name: "Tortaza",
+          name: "Lenovo",
           products: [
             {
               id: 1,

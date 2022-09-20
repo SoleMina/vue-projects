@@ -1,38 +1,39 @@
 <template>
-  <div class="fcc m-0">
+  <div class="m-0">
+    <h1 class="text-center p-4">{{ title }}</h1>
     <vue-form :state="formState" @submit.prevent="onSubmit">
       <validate class="fc" :custom="{ validator: nameValidator }">
         <span>Email *</span>
-        <input type="text" v-model="data.email" required name="email" />
+        <input
+          type="text"
+          v-model="data.email"
+          required
+          name="email"
+          class="form-control"
+        />
         <field-messages>
           <div class="text-success">Correcto!</div>
           <div slot="required">Este campo es obligatorio</div>
           <div slot="validator">Este campo tiene que ser un email</div>
         </field-messages>
       </validate>
-      <validate class="fc my-3" :custom="{ validator: passwordValidator }">
+      <validate class="my-3" :custom="{ validator: passwordValidator }">
         <label>Contraseña</label>
-        <input type="text" v-model="data.password" required name="password" />
+        <input
+          type="text"
+          v-model="data.password"
+          required
+          name="password"
+          class="form-control"
+        />
         <field-messages>
           <div class="text-success">Correcto!</div>
           <div slot="required">Este campo es obligatorio</div>
           <div slot="validator">Este campo tiene mayor a 8 caracteres</div>
         </field-messages>
       </validate>
-      <button type="submit" class="btn btn-info w-100">ENVIAR!</button>
+      <button type="submit" class="btn btn-primary w-100">Enviar</button>
     </vue-form>
-
-    <br />
-    <br />
-    invalid: {{ formState.$invalid }}
-    <br />
-    valid: {{ formState.$valid }}
-    <br />
-    submittedState: {{ formState.$submittedState }}
-
-    <div v-for="(value, key) in formState.$error" :key="key">
-      {{ key }} : {{ value }}
-    </div>
   </div>
 </template>
 
@@ -44,6 +45,7 @@ export default {
   },
   data() {
     return {
+      title: "Login",
       formState: {},
       data: {
         email: "",
@@ -80,4 +82,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+form {
+  width: 400px;
+  margin: 0 auto;
+}
+</style>
