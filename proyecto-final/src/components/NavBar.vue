@@ -1,6 +1,6 @@
 <template>
   <div class="navbar d-flex flex-column justify-content-start">
-    <div class="icon__menu pb-5">
+    <div class="icon__menu pb-5 pt-3">
       <font-awesome-icon icon="fa-solid fa-bars" />
     </div>
     <ul>
@@ -41,6 +41,8 @@ export default {
 .navbar {
   background: pink;
   height: 100vh;
+  position: fixed;
+  top: 0;
 }
 .navbar > ul {
   padding-top: 10px;

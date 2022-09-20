@@ -1,6 +1,10 @@
 <template>
-  <div class="products">
-    <h1 class="text-center">{{ title }}</h1>
+  <div class="">
+    <div class="text-center">
+      <h4>{{ product.name }}</h4>
+      <img :src="product.portada" width="180" />
+      <p>S/. {{ product.price }}</p>
+    </div>
   </div>
 </template>
 
@@ -8,7 +12,7 @@
 export default {
   name: "ProductsCard",
   props: {
-    msg: String
+    product: Object
   },
   data() {
     return {
@@ -20,6 +24,6 @@ export default {
 
 <style scoped>
 .products {
-  height: 100vh;
+  height: auto;
 }
 </style>
