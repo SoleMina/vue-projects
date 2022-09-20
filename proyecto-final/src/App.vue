@@ -4,8 +4,6 @@
       <NavBar />
     </div>
     <div class="products pt-5">
-      <RegisterForm />
-      <!--
       <h1 class="text-center">{{ title }}</h1>
       <div v-for="tienda in tiendas" :key="tienda.id">
         <h2 class="tienda-titulo mt-5 text-left">{{ tienda.name }}</h2>
@@ -18,24 +16,23 @@
           />
         </div>
       </div>
-      -->
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-//import ProductsCard from "./components/ProductsCard.vue";
+import ProductsCard from "./components/ProductsCard.vue";
 //import LoginForm from "./components/LoginForm.vue";
-import RegisterForm from "./components/RegisterForm.vue";
+//import RegisterForm from "./components/RegisterForm.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
-    //ProductsCard
+    ProductsCard
     //LoginForm,
-    RegisterForm
+    //RegisterForm
   },
   data() {
     return {
@@ -157,6 +154,7 @@ export default {
   methods: {
     addToCarrito(product) {
       this.carrito.push(product);
+      console.log("this.carrito", this.carrito);
     }
   }
 };
