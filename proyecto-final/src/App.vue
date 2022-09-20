@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="d-flex">
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
-    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <div class="navbar pt-0">
       <NavBar />
     </div>
@@ -25,14 +24,14 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import ProductsCard from "./components/ProductsCard.vue";
-//import HelloWorld from './components/HelloWorld.vue'
+//import LoginForm from "./components/ProductsCard.vue";
 
 export default {
   name: "App",
   components: {
-    //HelloWorld,
     NavBar,
     ProductsCard
+    //LoginForm
   },
   data() {
     return {
@@ -178,6 +177,7 @@ export default {
   justify-content: space-around;
 }
 .tienda-titulo {
-  padding-left: 20px;
+  padding: 10px 20px;
+  background-color: #f8e6e5;
 }
 </style>
