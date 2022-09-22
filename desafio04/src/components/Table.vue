@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h3 class="text-center m-5">{{ msg }}</h3>
+  <div class="mb-5">
+    <h3 class="text-center m-5">{{ title }}</h3>
     <table>
       <thead>
         <tr>
@@ -29,11 +29,6 @@ export default {
     users: Array,
     title: String,
   },
-  data() {
-    return {
-      msg: "Registro de Usuarios"
-    };
-  },
   methods: {
   },
   computed: {}
@@ -44,5 +39,17 @@ export default {
 table {
   width: 500px;
   margin: 0 auto;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border: 1px solid;
+  padding: 10px;
+}
+thead {
+  background: #e0e0e0;
 }
 </style>

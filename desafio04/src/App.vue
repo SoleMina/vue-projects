@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <RegisterForm :users="users" @addToUsers="addToUsers($event)" />
-    <TableComponent :users="users" />
+    <TableComponent :users="users" :title="title" />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   data() {
     return(
       {
+        title: "Registro de Uusuarios",
         users: [
         {
           firstname: "karina",
