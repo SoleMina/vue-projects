@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <RegisterForm :users="users" />
+    <RegisterForm :users="users" @addToUsers="addToUsers($event)" />
     <TableComponent :users="users" />
   </div>
 </template>
@@ -31,7 +31,9 @@ export default {
     )
   },
   methods: {
-
+    addToUsers(user) {
+      this.users.push(user);
+    }
   },
 };
 </script>

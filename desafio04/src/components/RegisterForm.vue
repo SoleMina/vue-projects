@@ -77,7 +77,9 @@
           <div slot="validator">La contraseña no es la misma</div>
         </field-messages>
       </validate>
-      <button type="submit" class="btn btn-primary w-100">Enviar</button>
+      <button type="submit" class="btn btn-primary w-100" @click="addUser()">
+        Enviar
+      </button>
     </vue-form>
   </div>
 </template>
@@ -108,8 +110,15 @@ export default {
         alert("ERROR EN EL FORMULARIO");
         return;
       }
-
       alert("FORMULARIO ENVIADO");
+    },
+    addUser() {
+      if (this.formState.$invalid) {
+        alert("ERROR EN EL FORMULARIO");
+        return;
+      }
+      this.$emit("addToUsers", this.data);
+      console.log(this.data)
     },
     passwordValidator: function (value) {
       let res = true;
