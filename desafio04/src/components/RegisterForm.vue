@@ -50,7 +50,7 @@
       <validate class="my-3" :custom="{ validator: passwordValidator }">
         <label class="text-label">Contraseña</label>
         <input
-          type="text"
+          type="password"
           v-model="data.password"
           required
           name="password"
