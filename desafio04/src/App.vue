@@ -1,18 +1,38 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <RegisterForm />
+    <RegisterForm :users="users" />
+    <TableComponent :users="users" />
   </div>
 </template>
 
-<script>
+<script lang="js">
 import RegisterForm from "./components/RegisterForm.vue";
+import TableComponent from "./components/Table.vue";
 
 export default {
   name: "App",
   components: {
-    RegisterForm
-  }
+    RegisterForm,
+    TableComponent,
+  },
+  data() {
+    return(
+      {
+        users: [
+        {
+          firstname: "karina",
+          lastname: "prado",
+          email: "kprado@gmail.com",
+          passowrd: 1234,
+        },
+      ]
+      }
+    )
+  },
+  methods: {
+
+  },
 };
 </script>
 

@@ -65,7 +65,7 @@
       <validate class="my-3" :custom="{ validator: samePasswordValidator }">
         <label class="text-label">Confirmar Contraseña</label>
         <input
-          type="text"
+          type="password"
           v-model="data.samePassword"
           required
           name="samePassword"
@@ -82,11 +82,12 @@
   </div>
 </template>
 
-<script>
+<script lang="js">
 export default {
   name: "RegisterForm",
   props: {
-    msg: String
+    msg: String,
+    users: Array
   },
   data() {
     return {
@@ -107,6 +108,7 @@ export default {
         alert("ERROR EN EL FORMULARIO");
         return;
       }
+
       alert("FORMULARIO ENVIADO");
     },
     passwordValidator: function (value) {
