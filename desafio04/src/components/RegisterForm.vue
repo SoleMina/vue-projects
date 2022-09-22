@@ -117,11 +117,13 @@ export default {
       return res;
     },
     samePasswordValidator: function (value) {
-      let res = false;
+      let res = true;
       console.log(this.data.password);
-      if (value == this.data.password) {
-        res = true;
+      if (!(value == this.data.password)) {
+        res = false;
+        console.log("ADENTRO", res);
       }
+      console.log("AFUERA", res);
       return res;
     },
     emailValidator: function (value) {
