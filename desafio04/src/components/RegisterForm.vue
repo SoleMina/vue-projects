@@ -1,9 +1,9 @@
 <template>
   <div class="m-0">
-    <h1 class="text-center p-4">{{ title }}</h1>
+    <h2 class="text-center p-4">{{ title }}</h2>
     <vue-form :state="formState" @submit.prevent="onSubmit">
       <validate class="fc" :custom="{ validator: firstnameValidator }">
-        <span>Firstname *</span>
+        <label class="text-label">Firstname *</label>
         <input
           type="text"
           v-model="data.firstname"
@@ -18,7 +18,7 @@
         </field-messages>
       </validate>
       <validate class="fc" :custom="{ validator: lastnameValidator }">
-        <span>Lastname *</span>
+        <label class="text-label">Lastname*</label>
         <input
           type="text"
           v-model="data.lastname"
@@ -33,7 +33,7 @@
         </field-messages>
       </validate>
       <validate class="fc" :custom="{ validator: emailValidator }">
-        <span>Email *</span>
+        <label class="text-label">Email*</label>
         <input
           type="text"
           v-model="data.email"
@@ -48,9 +48,9 @@
         </field-messages>
       </validate>
       <validate class="my-3" :custom="{ validator: passwordValidator }">
-        <label>Contraseña</label>
+        <label class="text-label">Contraseña</label>
         <input
-          type="text"
+          type="password"
           v-model="data.password"
           required
           name="password"
@@ -60,6 +60,21 @@
           <div class="text-success">Correcto!</div>
           <div slot="required">Este campo es obligatorio</div>
           <div slot="validator">Este campo tiene mayor a 8 caracteres</div>
+        </field-messages>
+      </validate>
+      <validate class="my-3" :custom="{ validator: samePasswordValidator }">
+        <label class="text-label">Repita Contraseña</label>
+        <input
+          type="password"
+          v-model="data.samePassword"
+          required
+          name="password"
+          class="form-control"
+        />
+        <field-messages class="mb-2">
+          <div class="text-success">Correcto!</div>
+          <div slot="required">Este campo es obligatorio</div>
+          <div slot="validator">La contraseña no es la misma</div>
         </field-messages>
       </validate>
       <button type="submit" class="btn btn-primary w-100">Enviar</button>
@@ -81,7 +96,8 @@ export default {
         firstname: "",
         lastname: "",
         email: "",
-        password: ""
+        password: "",
+        samePassword: ""
       }
     };
   },
@@ -96,6 +112,13 @@ export default {
     passwordValidator: function (value) {
       let res = true;
       if (value.length > 8) {
+        res = false;
+      }
+      return res;
+    },
+    samePasswordValidator: function (value) {
+      let res = true;
+      if (!value == this.password) {
         res = false;
       }
       return res;
@@ -139,5 +162,8 @@ export default {
 form {
   width: 400px;
   margin: 0 auto;
+}
+.text-label {
+  font-weight: bold;
 }
 </style>
