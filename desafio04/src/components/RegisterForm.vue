@@ -1,7 +1,7 @@
 <template>
   <div class="m-0">
     <h2 class="text-center p-4">{{ title }}</h2>
-    <vue-form :state="formState" @submit.prevent="onSubmit">
+    <vue-form :state="formState" @submit.prevent="onSubmit" ref="name">
       <validate class="fc" :custom="{ validator: firstnameValidator }">
         <label class="text-label">Firstname *</label>
         <input
@@ -85,6 +85,7 @@
 </template>
 
 <script lang="js">
+import {User} from "../user.js";
 export default {
   name: "RegisterForm",
   props: {
@@ -95,6 +96,7 @@ export default {
     return {
       title: "Register",
       formState: {},
+      usuario: {},
       data: {
         firstname: "",
         lastname: "",
@@ -116,8 +118,11 @@ export default {
       if (this.formState.$invalid) {
         return;
       }
-      this.$emit("addToUsers", this.data);
-      console.log(this.data)
+      console.log(this.users)
+      this.usuario =  new User(this.data.firstname, this.data.lastname, this.data.email, this.data.password)
+      console.log("this.usuario", this.usuario);
+      this.$emit("addToUsers", this.usuario);
+
     },
     passwordValidator: function (value) {
       let res = true;
@@ -157,6 +162,9 @@ export default {
       }
       return res;
     }
+  },
+  computed() {
+    console.log(this.users)
   }
 };
 </script>

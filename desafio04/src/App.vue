@@ -25,7 +25,7 @@ export default {
           firstname: "karina",
           lastname: "prado",
           email: "kprado@gmail.com",
-          passowrd: 1234,
+          password: 1234,
         },
       ]
       }
@@ -34,6 +34,7 @@ export default {
   methods: {
     addToUsers(user) {
       this.users.push(user);
+      console.log("USERS", this.users)
     }
   },
 };
