@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 table {
-  width: 500px;
+  width: 450px;
   margin: 0 auto;
 }
 tbody,
