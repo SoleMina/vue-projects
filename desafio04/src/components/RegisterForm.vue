@@ -112,11 +112,11 @@ export default {
       }
       alert("FORMULARIO ENVIADO");
     },
-    async addUser() {
+    addUser() {
       if (this.formState.$invalid) {
         return;
       }
-      await this.$emit("addToUsers", this.data);
+      this.$emit("addToUsers", this.data);
       console.log(this.data)
     },
     passwordValidator: function (value) {
