@@ -112,12 +112,11 @@ export default {
       }
       alert("FORMULARIO ENVIADO");
     },
-    addUser() {
+    async addUser() {
       if (this.formState.$invalid) {
-        alert("ERROR EN EL FORMULARIO");
         return;
       }
-      this.$emit("addToUsers", this.data);
+      await this.$emit("addToUsers", this.data);
       console.log(this.data)
     },
     passwordValidator: function (value) {
@@ -143,16 +142,6 @@ export default {
         res = true;
       }
       return res;
-      /*
-      let res = true;
-      if (!value.includes("@")) {
-        res = false;
-      }
-      if (!value.includes(".com")) {
-        res = false;
-      }
-      return res;
-      */
     },
     firstnameValidator: function (value) {
       let res = true;
