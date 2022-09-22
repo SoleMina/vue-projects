@@ -50,7 +50,7 @@
       <validate class="my-3" :custom="{ validator: passwordValidator }">
         <label class="text-label">Contraseña</label>
         <input
-          type="password"
+          type="text"
           v-model="data.password"
           required
           name="password"
@@ -63,12 +63,12 @@
         </field-messages>
       </validate>
       <validate class="my-3" :custom="{ validator: samePasswordValidator }">
-        <label class="text-label">Repita Contraseña</label>
+        <label class="text-label">Confirmar Contraseña</label>
         <input
-          type="password"
+          type="text"
           v-model="data.samePassword"
           required
-          name="password"
+          name="samePassword"
           class="form-control"
         />
         <field-messages class="mb-2">
@@ -111,15 +111,16 @@ export default {
     },
     passwordValidator: function (value) {
       let res = true;
-      if (value.length > 8) {
+      if (value.length > 8 || value.length < 3) {
         res = false;
       }
       return res;
     },
     samePasswordValidator: function (value) {
-      let res = true;
-      if (!value == this.password) {
-        res = false;
+      let res = false;
+      console.log(this.data.password);
+      if (value == this.data.password) {
+        res = true;
       }
       return res;
     },
