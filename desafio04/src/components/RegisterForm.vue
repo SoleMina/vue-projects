@@ -120,7 +120,6 @@ export default {
       }
       console.log(this.users)
       this.usuario =  new User(this.data.firstname, this.data.lastname, this.data.email, this.data.password)
-      console.log("this.usuario", this.usuario);
       this.$emit("addToUsers", this.usuario);
 
     },
