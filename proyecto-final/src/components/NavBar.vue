@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .navbar {
-  background: pink;
+  background: #b94e60;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -54,10 +54,15 @@ export default {
 .navbar > ul {
   padding-top: 10px;
   padding-left: 0;
+  width: 100%;
+  text-align: center;
 }
 .navbar > ul > li {
   list-style-type: none;
   padding: 20px 10px;
+}
+.navbar > ul > li:hover {
+  background: #efabb6 !important;
 }
 .navbar > ul > li > .icon__link {
   padding: 0 30px;
@@ -68,5 +73,8 @@ export default {
 .navbar > ul > li > svg {
   text-align: center;
   margin: 0 auto;
+}
+.svg-inline--fa {
+  color: white;
 }
 </style>

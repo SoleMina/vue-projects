@@ -12,8 +12,8 @@
             v-for="product in tienda.products"
             :key="product.id"
             :product="product"
-            @addToCart="addItem($event)"
             :carrito="carrito"
+            @addToCart="addToCart($event)"
           />
         </div>
       </div>
@@ -39,6 +39,7 @@ export default {
     return {
       title: "Flash Products",
       name: "",
+      producto: {},
       carrito: [],
       tiendas: [
         {
@@ -152,28 +153,26 @@ export default {
       ]
     };
   },
-  computed: {
-    total() {
-      let res = 0;
-      this.carrito.forEach((item) => {
-        res += item.product.price * item.count;
-      });
-      return res;
-    }
-  },
+  computed: {},
   methods: {
-    addItem(item) {
-      let itemExists = false;
-
-      this.carrito.forEach((listItem) => {
-        if (listItem.product.id == item.product.id) {
-          listItem.count += item.sum;
-          itemExists = true;
-        }
-        console.log("this.carrito", this.carrito);
-      });
-      if (!itemExists) {
-        this.carrito.push({ product: item.product, count: 1 });
+    addToCart(item) {
+      //let item = this.carrito.find((i) => i.id == product.id);
+      const isInCart = (id) => this.carrito.some((e) => e.product.id === id);
+      console.log("ITEMMMM", isInCart(item.product.id));
+      console.log("ID", item.product.id);
+      console.log("PRRODUCT", item.product);
+      if (isInCart(item.product.id)) {
+        this.carrito.map((elem) => {
+          console.log("elem.product.id", elem.product.id);
+          console.log("item.product.id", elem.product.id);
+          if (elem.product.id === item.product.id) {
+            elem.quantity = elem.quantity + item.quantity;
+          } else return elem;
+        });
+        console.log("MAAA", this.carrito);
+      } else {
+        this.carrito.push(item);
+        console.log("MEEE", this.carrito);
       }
     }
   }
@@ -201,6 +200,6 @@ export default {
 }
 .tienda-titulo {
   padding: 10px 20px;
-  background-color: #f8e6e5;
+  background-color: #efabb6;
 }
 </style>

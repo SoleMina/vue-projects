@@ -6,8 +6,8 @@
       <p>S/. {{ product.price }}</p>
       <ShopButton
         :product="product"
-        @addToCart="$emit('addToCart', $event)"
         :carrito="carrito"
+        @addToCart="$emit('addToCart', $event)"
       />
     </div>
   </div>
