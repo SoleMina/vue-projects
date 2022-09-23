@@ -4,27 +4,30 @@
       <h4>{{ product.name }}</h4>
       <img :src="product.portada" width="180" />
       <p>S/. {{ product.price }}</p>
-      <button class="btn btn-success" @click="buy()">Comprar</button>
+      <ShopButton
+        :product="product"
+        @addToCart="$emit('addToCart', $event)"
+        :carrito="carrito"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import ShopButton from "./ShopButton.vue";
 export default {
+  components: { ShopButton },
   name: "ProductsCard",
   props: {
-    product: Object
+    product: Object,
+    carrito: Array
   },
   data() {
     return {
       title: "Products"
     };
   },
-  methods: {
-    buy() {
-      this.$emit("addToCarrito", this.$props.product);
-    }
-  }
+  methods: {}
 };
 </script>
 

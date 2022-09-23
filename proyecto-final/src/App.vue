@@ -12,7 +12,8 @@
             v-for="product in tienda.products"
             :key="product.id"
             :product="product"
-            @addToCarrito="addToCarrito($event)"
+            @addToCart="addItem($event)"
+            :carrito="carrito"
           />
         </div>
       </div>
@@ -99,7 +100,7 @@ export default {
           name: "Lenovo",
           products: [
             {
-              id: 1,
+              id: 7,
               name: "Iphone 11",
               price: 575.0,
               portada:
@@ -107,7 +108,7 @@ export default {
               oferta: true
             },
             {
-              id: 2,
+              id: 8,
               name: "Samsung TV",
               price: 675.0,
               portada:
@@ -115,7 +116,7 @@ export default {
               oferta: false
             },
             {
-              id: 3,
+              id: 9,
               name: "LG TV 55'",
               price: 845.0,
               portada:
@@ -123,7 +124,7 @@ export default {
               oferta: true
             },
             {
-              id: 4,
+              id: 10,
               name: "Laptop Lenovo",
               price: 845.0,
               portada:
@@ -131,7 +132,7 @@ export default {
               oferta: true
             },
             {
-              id: 5,
+              id: 11,
               name: "Batidora",
               price: 845.0,
               portada:
@@ -139,7 +140,7 @@ export default {
               oferta: false
             },
             {
-              id: 6,
+              id: 12,
               name: "Pack Minime",
               price: 845.0,
               portada:
@@ -151,10 +152,29 @@ export default {
       ]
     };
   },
+  computed: {
+    total() {
+      let res = 0;
+      this.carrito.forEach((item) => {
+        res += item.product.price * item.count;
+      });
+      return res;
+    }
+  },
   methods: {
-    addToCarrito(product) {
-      this.carrito.push(product);
-      console.log("this.carrito", this.carrito);
+    addItem(item) {
+      let itemExists = false;
+
+      this.carrito.forEach((listItem) => {
+        if (listItem.product.id == item.product.id) {
+          listItem.count += item.sum;
+          itemExists = true;
+        }
+        console.log("this.carrito", this.carrito);
+      });
+      if (!itemExists) {
+        this.carrito.push({ product: item.product, count: 1 });
+      }
     }
   }
 };
