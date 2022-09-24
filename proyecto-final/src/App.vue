@@ -1,26 +1,27 @@
 <template>
-  <div id="app" class="d-flex">
-    <div class="navbar pt-0">
-      <NavBar />
+  <div id="app">
+    <div class="d-flex">
+      <div class="navbar pt-0">
+        <NavBar />
+      </div>
+      <div class="products pt-5">
+        <router-link to="/contact">Link to Contact</router-link>
+        <router-view></router-view>
+      </div>
     </div>
-    <div class="products pt-5">
-      <router-link to="/contact">Link to Contact</router-link>
-      <router-view></router-view>
-    </div>
+    <FooterComponent />
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-//import LoginForm from "./components/LoginForm.vue";
-//import RegisterForm from "./components/RegisterForm.vue";
+import FooterComponent from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar
-    //LoginForm,
-    //RegisterForm
+    NavBar,
+    FooterComponent
   },
   data() {
     return {
