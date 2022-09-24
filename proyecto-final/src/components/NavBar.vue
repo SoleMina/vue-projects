@@ -54,6 +54,7 @@ export default {
   height: 100vh;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .navbar > ul {
   padding-top: 10px;

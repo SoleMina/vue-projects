@@ -188,5 +188,6 @@ export default {
 .tienda-titulo {
   padding: 10px 20px;
   background-color: #efabb6;
+  color: #702733;
 }
 </style>

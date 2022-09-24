@@ -45,14 +45,4 @@ export default {
 .products {
   width: 90%;
 }
-.products__box {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.tienda-titulo {
-  padding: 10px 20px;
-  background-color: #efabb6;
-}
 </style>
