@@ -5,9 +5,9 @@
     </div>
     <ul>
       <li v-for="(icon, index) in icons" :key="index">
-        <a class="icon__link">
+        <router-link class="icon__link" :to="icon.url">
           <font-awesome-icon :icon="icon.name" />
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -24,19 +24,23 @@ export default {
       icons: [
         {
           id: 0,
-          name: "fa-solid fa-house"
+          name: "fa-solid fa-house",
+          url: "/"
         },
         {
           id: 1,
-          name: "fa-solid fa-user"
+          name: "fa-solid fa-user",
+          url: "/login"
         },
         {
           id: 2,
-          name: "fa-solid fa-user-plus"
+          name: "fa-solid fa-user-plus",
+          url: "/register"
         },
         {
           id: 3,
-          name: "fa-solid fa-right-from-bracket"
+          name: "fa-solid fa-right-from-bracket",
+          url: "/logout"
         }
       ]
     };
