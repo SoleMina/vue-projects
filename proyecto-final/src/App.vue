@@ -38,11 +38,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  position: relative;
 }
 .navbar {
   min-width: 10%;
 }
 .products {
   width: 90%;
+  min-height: 86vh;
 }
 </style>
