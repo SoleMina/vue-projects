@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeComponent from "./views/Home.vue";
-import ContactComponent from "./views/ContactUs.vue";
-import LoginForm from "./components/LoginForm.vue";
-import RegisterForm from "./components/RegisterForm.vue";
+import HomeComponent from "../views/Home.vue";
+import ContactComponent from "../views/ContactUs.vue";
+import LoginForm from "../components/LoginForm.vue";
+import RegisterForm from "../components/RegisterForm.vue";
 
 Vue.use(VueRouter);
 

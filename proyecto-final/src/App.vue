@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       title: "Flash Products",
-      name: ""
+      isLogged: true
     };
   }
 };
