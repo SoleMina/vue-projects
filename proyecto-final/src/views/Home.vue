@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1 class="text-center">{{ title }}</h1>
-    <div v-for="tienda in tiendas" :key="tienda.id">
-      <h2 class="tienda-titulo mt-5 text-left">{{ tienda.name }}</h2>
-      <div class="products__box">
+    <div v-for="company in companies" :key="company.name">
+      <h2 class="tienda-titulo mt-5 text-left">{{ company.name }}</h2>
+      <div class="products__box" v-if="company.products">
         <ProductsCard
-          v-for="product in tienda.products"
-          :key="product.id"
+          v-for="product in company.products"
+          :key="product.id + 'i'"
           :product="product"
           :carrito="carrito"
           @addToCart="addToCart($event)"
@@ -26,12 +26,27 @@ export default {
     return {
       title: "Flash Products",
       name: "",
-      producto: {},
+      url: "https://63307baff5fda801f8e19f5c.mockapi.io/products",
       carrito: [],
+      companies: [
+        {
+          name: "Pizzeria by Alfredo",
+          products: []
+        },
+        {
+          name: "Electronics",
+          products: []
+        },
+        {
+          name: "Lenovo",
+          products: []
+        }
+      ],
+      store: [],
       tiendas: [
         {
           id: 1,
-          name: "Pizzeria by Alfredo",
+          name: "Pizzeria",
           products: [
             {
               id: 1,
@@ -142,6 +157,15 @@ export default {
   },
   computed: {},
   methods: {
+    getData() {
+      const getProducts = () => {
+        this.axios
+          .get(this.url)
+          .then((res) => (this.store = res.data))
+          .catch((error) => console.log(error));
+      };
+      getProducts();
+    },
     addToCart(item) {
       //let item = this.carrito.find((i) => i.id == product.id);
       const isInCart = (id) => this.carrito.some((e) => e.product.id === id);
@@ -162,7 +186,27 @@ export default {
         console.log("MEEE", this.carrito);
       }
     }
-  }
+  },
+  created() {
+    this.getData();
+  },
+  mounted() {
+    let newProduct;
+    setTimeout(() => {
+      this.companies.forEach((element, index) => {
+        console.log("elementooo", element);
+        console.log("index", index);
+        newProduct = this.store.filter(
+          (product) => product.company === element.name
+        );
+        console.log("newProduct", newProduct);
+        this.companies[index].products = newProduct;
+      });
+      //console.log("COMPANIESSS", this.companies);
+      //console.log("STOREEEEE", this.store);
+    }, 500);
+  },
+  updated() {}
 };
 </script>
 

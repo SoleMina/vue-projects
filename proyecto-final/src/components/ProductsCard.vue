@@ -2,7 +2,7 @@
   <div class="">
     <div class="text-center">
       <h4>{{ product.name }}</h4>
-      <img :src="product.portada" width="180" />
+      <img :src="product.image" width="180" />
       <p>S/. {{ product.price }}</p>
       <ShopButton
         :product="product"

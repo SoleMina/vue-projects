@@ -1,33 +1,45 @@
 <template>
   <div id="app">
-    <div class="d-flex">
-      <div class="navbar pt-0">
-        <NavBar />
+    <div v-if="isLogged">
+      <div class="d-flex">
+        <div class="navbar pt-0">
+          <NavBar />
+        </div>
+        <div class="products pt-5">
+          <router-link to="/contact">Link to Contact</router-link>
+          <router-view></router-view>
+        </div>
       </div>
-      <div class="products pt-5">
-        <router-link to="/contact">Link to Contact</router-link>
-        <router-view></router-view>
-      </div>
+      <FooterComponent />
     </div>
-    <FooterComponent />
+    <div v-else>
+      <LoginForm />
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
 import FooterComponent from "./components/Footer.vue";
+import LoginForm from "./components/LoginForm.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
-    FooterComponent
+    FooterComponent,
+    LoginForm
   },
   data() {
     return {
       title: "Flash Products",
       isLogged: true
     };
+  },
+  methods: {
+    login() {
+      this.isLogged = !this.isLogged;
+    }
   }
 };
 </script>
