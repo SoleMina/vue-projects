@@ -6,7 +6,7 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Login to website
 
 ```
 Login: username: karina@gmail.com password: 1234
