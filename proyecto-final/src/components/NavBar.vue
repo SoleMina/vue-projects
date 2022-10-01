@@ -27,11 +27,13 @@ export default {
           name: "fa-solid fa-house",
           url: "/"
         },
+        /*
         {
           id: 1,
           name: "fa-solid fa-user",
           url: "/login"
         },
+        */
         {
           id: 2,
           name: "fa-solid fa-user-plus",

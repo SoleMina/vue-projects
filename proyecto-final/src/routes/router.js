@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeComponent from "../views/Home.vue";
 import ContactComponent from "../views/ContactUs.vue";
-import LoginForm from "../components/LoginForm.vue";
+//import LoginForm from "../components/LoginForm.vue";
 import RegisterForm from "../components/RegisterForm.vue";
 
 Vue.use(VueRouter);
@@ -24,15 +24,17 @@ const router = new VueRouter({
       component: ContactComponent
     },
     {
-      path: "/login",
-      name: "login",
-      component: LoginForm
-    },
-    {
       path: "/register",
       name: "register",
       component: RegisterForm
     }
+    /*
+    {
+      path: "/login",
+      name: "login",
+      component: LoginForm
+    },
+    */
   ]
 });
 export default router;
