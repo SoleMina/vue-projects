@@ -6,14 +6,14 @@
           <NavBar />
         </div>
         <div class="products pt-5">
-          <router-link to="/contact">Link to Contact</router-link>
+          <!--router-link to="/contact">Link to Contact</router-link>-->
           <router-view></router-view>
         </div>
       </div>
       <FooterComponent />
     </div>
     <div v-else>
-      <LoginForm />
+      <LoginForm @loginEvent="loginEvent($event)" />
     </div>
   </div>
 </template>
@@ -33,13 +33,24 @@ export default {
   data() {
     return {
       title: "Flash Products",
-      isLogged: true
+      isLogged: false
     };
   },
   methods: {
     login() {
       this.isLogged = !this.isLogged;
+    },
+    loginEvent(data) {
+      console.log("OHHH", data);
+      this.isLogged = data.isLogged;
     }
+  },
+  computed: {},
+  mounted() {
+    this.isLogged;
+  },
+  updated() {
+    this.isLogged;
   }
 };
 </script>

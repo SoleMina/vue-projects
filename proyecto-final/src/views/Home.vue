@@ -3,7 +3,7 @@
     <h1 class="text-center">{{ title }}</h1>
     <div v-for="company in companies" :key="company.name">
       <h2 class="tienda-titulo mt-5 text-left">{{ company.name }}</h2>
-      <div class="products__box" v-if="company.products">
+      <div class="products__box pt-4" v-if="company.products">
         <ProductsCard
           v-for="product in company.products"
           :key="product.id + 'i'"
@@ -26,7 +26,7 @@ export default {
     return {
       title: "Flash Products",
       name: "",
-      url: "https://63307baff5fda801f8e19f5c.mockapi.io/products",
+      productsUrl: "https://63307baff5fda801f8e19f5c.mockapi.io/products",
       carrito: [],
       companies: [
         {
@@ -35,10 +35,6 @@ export default {
         },
         {
           name: "Electronics",
-          products: []
-        },
-        {
-          name: "Lenovo",
           products: []
         }
       ],
@@ -157,14 +153,27 @@ export default {
   },
   computed: {},
   methods: {
-    getData() {
-      const getProducts = () => {
-        this.axios
-          .get(this.url)
-          .then((res) => (this.store = res.data))
-          .catch((error) => console.log(error));
+    async getProducts() {
+      await this.axios
+        .get(this.productsUrl)
+        .then((res) => (this.store = res.data))
+        .catch((error) => console.log(error));
+    },
+    async postProducts() {
+      let encabezado = {
+        method: "POST",
+        headers: {
+          "Content-type": "applications/json"
+        },
+        body: JSON.stringify(this.store)
       };
-      getProducts();
+      console.log(encabezado);
+      await this.axios
+        .post(this.productsUrl)
+        .then((res) => this.store.push(res))
+        .catch((error) => console.log(error));
+
+      console.log(this.store);
     },
     addToCart(item) {
       //let item = this.carrito.find((i) => i.id == product.id);
@@ -188,7 +197,7 @@ export default {
     }
   },
   created() {
-    this.getData();
+    this.getProducts();
   },
   mounted() {
     let newProduct;

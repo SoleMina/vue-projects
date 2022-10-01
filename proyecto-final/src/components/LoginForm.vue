@@ -32,7 +32,13 @@
           <div slot="validator">Este campo tiene mayor a 8 caracteres</div>
         </field-messages>
       </validate>
-      <button type="submit" class="btn btn-primary w-100">Enviar</button>
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        @click="loginEvent(data)"
+      >
+        Enviar
+      </button>
     </vue-form>
   </div>
 </template>
@@ -47,6 +53,10 @@ export default {
     return {
       title: "Login",
       formState: {},
+      usersURL: "https://6335d43565d1e8ef2663f337.mockapi.io/users",
+      users: [],
+      user: [],
+      isLogged: false,
       data: {
         email: "",
         password: ""
@@ -54,12 +64,31 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
+      await this.getUsers();
       if (this.formState.$invalid) {
         alert("ERROR EN EL FORMULARIO");
         return;
       }
-      alert("FORMULARIO ENVIADO");
+      this.user = this.users.filter(
+        (user) =>
+          user.email === this.data.email && user.password === this.data.password
+      );
+      console.log("usuario", this.user);
+      if (this.user[0].email == undefined) {
+        alert("ERROR EN EL FORMULARIO");
+        return;
+      } else {
+        this.isLogged = true;
+        alert("USUARIO LOGEADO");
+      }
+    },
+    async getUsers() {
+      await this.axios
+        .get(this.usersURL)
+        .then((res) => (this.users = res.data))
+        .catch((error) => console.log(error));
+      console.log("users", this.users);
     },
     passwordValidator: function (value) {
       let res = true;
@@ -77,7 +106,22 @@ export default {
         res = false;
       }
       return res;
-    }
+    },
+    loginEvent(data) {
+      setTimeout(() => {
+        if (this.isLogged) {
+          this.$emit("loginEvent", {
+            email: data.email,
+            password: data.password,
+            isLogged: this.isLogged
+          });
+        }
+      }, 1000);
+    },
+    created() {
+      this.getUsers();
+    },
+    mounted() {}
   }
 };
 </script>
