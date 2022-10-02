@@ -1,6 +1,6 @@
 <template>
   <div class="m-0">
-    <h1 class="text-center p-4">{{ title }}</h1>
+    <h1 class="text-center p-5">{{ title }}</h1>
     <vue-form :state="formState" @submit.prevent="onSubmit">
       <validate class="fc" :custom="{ validator: nameValidator }">
         <span>Email *</span>
@@ -40,6 +40,12 @@
         Enviar
       </button>
     </vue-form>
+    <div class="d-flex justify-content-center flex-column form__register">
+      <p class="pt-5">¿Aún no tienes una cuenta?</p>
+      <router-link to="/register" class="btn btn-secondary"
+        >Crear cuenta</router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -127,8 +133,12 @@ export default {
 </script>
 
 <style scoped>
-form {
+form,
+.form__register {
   width: 400px;
   margin: 0 auto;
+}
+.form__register > .btn {
+  width: fit-content;
 }
 </style>
