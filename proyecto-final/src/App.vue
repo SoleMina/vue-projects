@@ -6,7 +6,6 @@
           <NavBar />
         </div>
         <div class="products pt-5">
-          <!--router-link to="/contact">Link to Contact</router-link>-->
           <router-view></router-view>
         </div>
       </div>
